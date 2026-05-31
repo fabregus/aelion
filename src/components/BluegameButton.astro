@@ -1,0 +1,186 @@
+---
+const {
+  href = "https://portal.bluegameitsolutions.com/login",
+  variant = "default",
+} = Astro.props;
+
+const isHeader = variant === "header";
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener"
+  class:list={["button-primary", isHeader && "button-primary--header"]}
+>
+  <img
+    src="/images/bluegame-logo.png"
+    alt="Bluegame"
+    class="bluegame-logo"
+    loading="lazy"
+    decoding="async"
+  />
+  <span class="login-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path
+        d="M14 4H8.8C7.11984 4 6.27976 4 5.63803 4.32698C5.07354 4.6146 4.6146 5.07354 4.32698 5.63803C4 6.27976 4 7.11984 4 8.8V15.2C4 16.8802 4 17.7202 4.32698 18.362C4.6146 18.9265 5.07354 19.3854 5.63803 19.673C6.27976 20 7.11984 20 8.8 20H14"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+      <path
+        d="M10 12H20M20 12L17 9M20 12L17 15"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </span>
+</a>
+
+<style>
+  .button-primary {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #03c4b3 0%, #02af9f 50%, #028f82 100%);
+    padding: 0.62rem 0.95rem;
+    justify-content: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition:
+      box-shadow 180ms ease,
+      filter 180ms ease;
+    box-shadow:
+      0 12px 28px rgba(2, 175, 159, 0.35),
+      inset 0 -2px 0 rgba(1, 120, 108, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    width: 170px;
+    z-index: 0;
+  }
+
+  .button-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      110deg,
+      transparent 0%,
+      transparent 35%,
+      rgba(255, 255, 255, 0.28) 50%,
+      transparent 65%,
+      transparent 100%
+    );
+    transform: translateX(-130%);
+    opacity: 0;
+    transition:
+      transform 620ms ease,
+      opacity 620ms ease;
+    pointer-events: none;
+  }
+
+  .button-primary::after {
+    content: "";
+    position: absolute;
+    inset: -30% -10%;
+    border-radius: inherit;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0) 65%
+    );
+    opacity: 0;
+    transform: scale(0.85);
+    transition:
+      opacity 260ms ease,
+      transform 260ms ease;
+    pointer-events: none;
+  }
+
+  .button-primary:hover {
+    box-shadow:
+      0 16px 32px rgba(2, 175, 159, 0.45),
+      inset 0 -2px 0 rgba(1, 120, 108, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    filter: brightness(1.06);
+  }
+
+  .button-primary:hover::before {
+    transform: translateX(130%);
+    opacity: 1;
+  }
+
+  .button-primary:hover::after {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  .bluegame-logo {
+    position: relative;
+    z-index: 2;
+    width: 82px;
+    height: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  .login-icon {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+  }
+
+  .login-icon svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    display: block;
+    transition: transform 200ms ease;
+  }
+
+  .button-primary:hover .login-icon svg {
+    transform: translateX(2px);
+  }
+
+  .button-primary--header {
+    width: 170px;
+    padding: 0.62rem 0.95rem;
+    gap: 0.55rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .button-primary::before,
+    .button-primary::after,
+    .button-primary {
+      animation: none !important;
+      transition: none !important;
+      box-shadow: none !important;
+    }
+
+    .button-primary:hover .login-icon svg {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .button-primary--header {
+      width: 138px;
+      padding: 0.5rem 0.72rem;
+      gap: 0.55rem;
+    }
+
+    .button-primary--header .bluegame-logo {
+      width: 68px;
+    }
+
+    .button-primary--header .login-icon svg {
+      width: 0.9rem;
+      height: 0.9rem;
+    }
+  }
+</style>

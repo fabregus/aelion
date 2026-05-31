@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/sections/Hero.astro";
+import WhoWeAre from "../components/sections/WhoWeAre.astro";
+import Philosophy from "../components/sections/Philosophy.astro";
+import Services from "../components/sections/Services.astro";
+import Industries from "../components/sections/Industries.astro";
+import WhyUs from "../components/sections/WhyUs.astro";
+import Esg from "../components/sections/Esg.astro";
+import CtaBanner from "../components/sections/CtaBanner.astro";
+import Footer from "../components/Footer.astro";
+import { whoWeAre, philosophy } from "../data/content";
+---
+
+<Layout lang="en" title="AELION | Premium Total Facility Management">
+  <div class="relative">
+    <Header />
+    <Hero />
+  </div>
+
+  <div class="section-gap" aria-hidden="true"></div>
+
+  <WhoWeAre {...whoWeAre} />
+  <div class="section-gap" aria-hidden="true"></div>
+
+  <Philosophy {...philosophy} />
+  <div class="section-gap" aria-hidden="true"></div>
+
+  <Services />
+  <div class="section-gap" aria-hidden="true"></div>
+
+  <Industries />
+  <div class="section-gap" aria-hidden="true"></div>
+
+  <WhyUs />
+  <div class="section-gap" aria-hidden="true"></div>
+
+  <Esg />
+  <div class="section-gap" aria-hidden="true"></div>
+
+  <CtaBanner />
+  <Footer />
+</Layout>

@@ -1,0 +1,84 @@
+---
+const {
+  id = "about",
+  padding = "py-24",
+  titleTop,
+  titleBottom,
+  paragraphs = [],
+  sections = [],
+} = Astro.props;
+---
+
+<section id={id} class={`relative bg-white ${padding}`}>
+  <div class="container-site">
+    <div class="mb-12 h-1.5 w-1/3 bg-primary"></div>
+    {
+      sections.length > 1 ? (
+        <div class="grid gap-12 py-4 md:grid-cols-2">
+          <div class="w-full max-w-xl md:col-start-1 md:row-start-1">
+            <h2 class="text-[30px] font-medium leading-[1.08] tracking-tight text-navy md:text-[36px]">
+              <span class="block uppercase">{sections[0].titleTop}</span>
+              {sections[0].titleBottom && (
+                <span class="block uppercase">{sections[0].titleBottom}</span>
+              )}
+            </h2>
+
+            {(sections[0].paragraphs ?? []).map((paragraph) => (
+              <p class="mt-6 text-lg leading-7 text-justify text-navy/85">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          <div class="w-full max-w-xl md:col-start-2 md:row-start-2">
+            <h2 class="text-[30px] font-medium leading-[1.08] tracking-tight text-navy md:text-[36px]">
+              <span class="block uppercase">{sections[1].titleTop}</span>
+              {sections[1].titleBottom && (
+                <span class="block uppercase">{sections[1].titleBottom}</span>
+              )}
+            </h2>
+
+            {(sections[1].paragraphs ?? []).map((paragraph) => (
+              <p class="mt-6 text-lg leading-7 text-justify text-navy/85">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+      ) : sections.length > 0 ? (
+        <div class="grid gap-12 py-4 md:grid-cols-2">
+          {sections.map((section) => (
+            <div class="w-full max-w-xl">
+              <h2 class="text-[30px] font-medium leading-[1.08] tracking-tight text-navy md:text-[36px]">
+                <span class="block uppercase">{section.titleTop}</span>
+                {section.titleBottom && (
+                  <span class="block uppercase">{section.titleBottom}</span>
+                )}
+              </h2>
+
+              {(section.paragraphs ?? []).map((paragraph) => (
+                <p class="mt-6 text-lg leading-7 text-justify text-navy/85">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="mx-auto max-w-170 py-4 text-center">
+          <h2 class="text-[32px] font-medium leading-[1.15] text-navy">
+            <span class="block uppercase">{titleTop}</span>
+            {titleBottom && <span class="block uppercase">{titleBottom}</span>}
+          </h2>
+
+          {paragraphs.map((paragraph) => (
+            <p class="mx-auto mt-8 text-lg leading-6 text-navy/80 font-medium">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      )
+    }
+    <div class="mt-12 ml-auto h-1.5 w-1/3 bg-primary"></div>
+  </div>
+</section>

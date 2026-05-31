@@ -1,0 +1,114 @@
+---
+import type { ServiceCategory } from "../../data/services";
+
+interface Props extends ServiceCategory {}
+
+const themeClasses = {
+  soft: {
+    section: "bg-cream text-navy",
+    border: "border-navy/15",
+    title: "text-primary",
+    chevron: "text-navy",
+    detail: "text-navy/80",
+  },
+  hard: {
+    section: "bg-primary text-white",
+    border: "border-white/25",
+    title: "text-white",
+    chevron: "text-white",
+    detail: "text-white/85",
+  },
+  procurement: {
+    section: "bg-navy text-white",
+    border: "border-white/25",
+    title: "text-white",
+    chevron: "text-white",
+    detail: "text-white/85",
+  },
+} as const;
+
+const { id, label, theme, items } = Astro.props;
+const styles = themeClasses[theme];
+---
+
+<div class:list={["py-12 md:py-16 lg:py-20", styles.section]}>
+  <div class="container-site">
+    <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div class="order-2 lg:order-1">
+        {
+          items.map((item) => (
+            <details class:list={["group border-b", styles.border]}>
+              <summary
+                class:list={[
+                  "flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-sm font-medium md:text-base",
+                  "[&::-webkit-details-marker]:hidden",
+                ]}
+              >
+                <span>{item.title}</span>
+                <svg
+                  class:list={[
+                    "h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180",
+                    styles.chevron,
+                  ]}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M6 9l6 6 6-6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </summary>
+
+              <div class:list={["pb-5 text-sm leading-relaxed", styles.detail]}>
+                {item.description && <p class="mb-3">{item.description}</p>}
+                <ul class="space-y-1">
+                  {item.bullets.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+
+      <div class="order-1 flex justify-start lg:order-2 lg:justify-end">
+        <h3
+          class:list={[
+            "text-2xl font-normal uppercase leading-tight sm:text-[40px] sm:leading-[47px]",
+            id === "procurement" ? "max-w-xs text-right" : "whitespace-nowrap",
+            styles.title,
+          ]}
+        >
+          {
+            id === "procurement" ? (
+              <>
+                PROCUREMENT
+                <br />
+                MANAGEMENT
+              </>
+            ) : (
+              label
+            )
+          }
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  details > summary {
+    outline: none;
+  }
+
+  details > summary:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+</style>

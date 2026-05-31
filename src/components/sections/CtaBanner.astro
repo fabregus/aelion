@@ -1,0 +1,44 @@
+---
+import { cta } from "../../data/content";
+
+const {
+  title = cta.title,
+  text = cta.text,
+  ctaLabel = cta.ctaLabel,
+  ctaEmail = cta.ctaEmail,
+  imageSrc = cta.imageSrc,
+  imageAlt = cta.imageAlt,
+} = Astro.props;
+---
+
+<section class="relative">
+  <div class="absolute inset-0">
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      class="h-full w-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-dark/45"></div>
+  </div>
+
+  <div class="container-site relative py-24 md:py-32 lg:py-40">
+    <div class="max-w-xl">
+      <h2 class="text-2xl font-medium leading-snug tracking-tight text-white md:text-3xl lg:text-[34px]">
+        {title}
+      </h2>
+
+      <p class="mt-5 max-w-md text-sm leading-relaxed text-white/90 md:text-base">
+        {text}
+      </p>
+
+      <a
+        href={`mailto:${ctaEmail}`}
+        class="mt-8 inline-block text-lg text-white underline decoration-primary decoration-2 underline-offset-4 transition hover:text-primary md:text-xl"
+      >
+        {ctaEmail}
+      </a>
+    </div>
+  </div>
+</section>

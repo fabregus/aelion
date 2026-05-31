@@ -1,0 +1,26 @@
+---
+const { class: className = "" } = Astro.props;
+---
+
+<a href="/" class:list={["inline-flex flex-col items-start gap-1", className]}>
+  <svg
+    class="h-10 w-10"
+    viewBox="0 0 48 48"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <defs>
+      <linearGradient id="aelion-a" x1="8" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#02AF9F" />
+        <stop offset="1" stop-color="#3DD9CC" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M24 4L6 42h8.5l3.2-7.5h15.6L36.5 42H45L24 4zm-2.2 26.5L24 18.5l2.2 12h-4.4z"
+      fill="url(#aelion-a)"></path>
+  </svg>
+  <span class="text-[11px] font-medium uppercase tracking-[0.35em] text-primary">
+    AELION
+  </span>
+</a>

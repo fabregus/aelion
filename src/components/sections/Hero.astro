@@ -1,0 +1,81 @@
+---
+import { images } from "../../data/images";
+
+const {
+  imageSrc = images.hero.src,
+  imageSrc2x = images.hero.src2x,
+  imageAlt = images.hero.alt,
+  titleLine1 = "PREMIUM",
+  titleLine2 = "TOTAL FACILITY MANAGEMENT",
+  tagline = "Elevating standards. Empowering environments.",
+  descriptionBefore = "From daily operations to complex technical interventions, AELION",
+  descriptionAfter = "delivers a seamless, integrated FM experience built on trust, quality, and long term value.",
+  ctaLabel = "EXPLORE OUR SERVICES",
+  ctaHref = "#solutions",
+} = Astro.props;
+---
+
+<section id="home" class="relative min-h-screen">
+  <div class="absolute inset-0">
+    <picture>
+      <source media="(min-width: 768px)" srcset={imageSrc2x} />
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        class="h-full w-full object-cover"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </picture>
+    <div class="absolute inset-0 bg-dark/50"></div>
+  </div>
+
+  <div class="relative z-10 flex min-h-screen flex-col">
+    <div class="container-site site-grid flex flex-1 items-center pt-28 md:pt-32">
+      <div class="col-span-12 md:col-span-10 lg:col-span-7 xl:col-span-6 hero-fade-left">
+        <h1 class="text-4xl font-medium uppercase leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
+          {titleLine1}
+          <br />
+          {titleLine2}
+        </h1>
+
+        <p class="mt-6 text-lg text-white/95 md:text-xl">
+          {tagline}
+        </p>
+
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-white/85 md:max-w-none md:text-[17px]">
+          {descriptionBefore}
+          <br />
+          {descriptionAfter}
+        </p>
+
+        <a href={ctaHref} class="btn-ghost mt-10">
+          {ctaLabel}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-fade-left {
+    animation: hero-fade-left 900ms ease-out both;
+  }
+
+  @keyframes hero-fade-left {
+    from {
+      opacity: 0;
+      transform: translateX(-28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-fade-left {
+      animation: none;
+    }
+  }
+</style>

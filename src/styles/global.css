@@ -1,0 +1,91 @@
+@import "@fontsource/inter/300.css";
+@import "@fontsource/inter/500.css";
+
+@import "tailwindcss";
+
+/* Sync with colors.txt */
+@theme {
+  --color-white: #ffffff;
+  --color-navy: #1a213d;
+  --color-gray: #707070;
+  --color-black: #000000;
+  --color-cream: #f9f5f3;
+  --color-dark: #0a1d2e;
+  --color-primary: #02af9f;
+  --color-slate: #6a6f81;
+  --color-surface: #f7f7f7;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 300;
+  color: var(--color-navy);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-10;
+  }
+
+  .site-grid {
+    @apply grid w-full grid-cols-12 gap-x-6 lg:gap-x-8;
+  }
+
+  .section {
+    @apply py-20;
+  }
+
+  .section-tight {
+    @apply py-12;
+  }
+
+  .kicker {
+    @apply text-[11px] font-semibold tracking-[0.2em] text-gray;
+  }
+
+  .h2 {
+    @apply text-3xl font-semibold tracking-tight text-navy;
+  }
+
+  .font-body {
+    @apply font-light;
+  }
+
+  .font-ui {
+    @apply font-medium;
+  }
+
+  .btn-ghost {
+    @apply inline-block border border-white bg-transparent px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] text-white transition hover:bg-white/10;
+  }
+
+  .section-gap {
+    @apply h-16 w-full shrink-0 bg-white md:h-24;
+  }
+
+  .section-body {
+    @apply pt-16 md:pt-20 lg:pt-24;
+  }
+}

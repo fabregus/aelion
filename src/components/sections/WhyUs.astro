@@ -1,0 +1,54 @@
+---
+import { whyAelionIntro, whyAelionItems } from "../../data/whyAelion";
+
+const {
+  kicker = whyAelionIntro.kicker,
+  title = whyAelionIntro.title,
+  items = whyAelionItems,
+} = Astro.props;
+---
+
+<section class="bg-cream">
+  <div class="container-site section-body">
+    <div class="mb-6 h-1 w-14 bg-primary"></div>
+
+    <p class="text-xs font-medium uppercase tracking-[0.2em] text-navy">
+      {kicker}
+    </p>
+
+    <h2 class="mt-4 max-w-2xl text-3xl font-medium leading-tight tracking-tight text-navy md:text-4xl">
+      {title}
+    </h2>
+  </div>
+
+  <div class="mt-12 px-6 sm:px-10 lg:px-[74px]">
+    <div
+      class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+    >
+      {
+        items.map((item) => (
+          <article class="flex flex-col items-center border border-navy/10 bg-white px-5 py-8 text-center md:px-6 md:py-9">
+            <span class="number-outline text-6xl font-light leading-none md:text-7xl">
+              {item.number}
+            </span>
+
+            <h3 class="mt-6 text-base font-medium leading-snug text-navy md:text-lg">
+              {item.title}
+            </h3>
+
+            <p class="mt-4 text-sm leading-relaxed text-gray">
+              {item.description}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .number-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--color-primary);
+  }
+</style>

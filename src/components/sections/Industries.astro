@@ -1,0 +1,28 @@
+---
+import IndustryCard from "../IndustryCard.astro";
+import { industries, industriesIntro } from "../../data/industries";
+
+const {
+  kicker = industriesIntro.kicker,
+  title = industriesIntro.title,
+  items = industries,
+} = Astro.props;
+---
+
+<section id="industries" class="bg-cream">
+  <div class="container-site section-body">
+    <div class="mb-6 h-1 w-14 bg-primary"></div>
+
+    <p class="text-xs font-medium uppercase tracking-[0.2em] text-navy">
+      {kicker}
+    </p>
+
+    <h2 class="mt-4 max-w-2xl text-3xl font-medium leading-tight tracking-tight text-navy md:text-4xl">
+      {title}
+    </h2>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+      {items.map((item) => <IndustryCard {...item} />)}
+    </div>
+  </div>
+</section>

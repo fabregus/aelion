@@ -1,0 +1,27 @@
+---
+const { title, description, image } = Astro.props;
+---
+
+<article class="group relative aspect-[469/571] overflow-hidden bg-navy">
+  <img
+    src={image}
+    alt={title}
+    class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out md:group-hover:scale-[1.05]"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <div
+    class="absolute inset-0 bg-black/35 transition-colors duration-500 md:group-hover:bg-black/55"
+  >
+  </div>
+
+  <div class="absolute inset-x-0 bottom-0 p-6 text-center md:p-8">
+    <h3 class="text-base font-medium text-white md:text-lg">{title}</h3>
+    <p
+      class="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-white/90 opacity-100 md:max-h-0 md:overflow-hidden md:opacity-0 md:transition-all md:duration-500 md:group-hover:max-h-24 md:group-hover:opacity-100"
+    >
+      {description}
+    </p>
+  </div>
+</article>

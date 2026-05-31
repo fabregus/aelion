@@ -1,0 +1,10 @@
+# AELION brand palette (synced in src/data/brand.ts and src/styles/global.css)
+#FFFFFF   white
+#1A213D   navy
+#707070   gray
+#000000   black
+#F9F5F3   cream
+#0A1D2E   dark
+#02AF9F   primary
+#6A6F81   slate
+#F7F7F7   surface

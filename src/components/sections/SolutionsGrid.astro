@@ -1,0 +1,57 @@
+---
+import ServiceCard from "../ServiceCard.astro";
+
+const {
+  title = "SOLUTIONS",
+  items = [
+    {
+      title: "AIR FREIGHT",
+      desc: "Rely on air logistics transportation solutions from and to the most important airports in the world, finely adjusted to your needs and schedules.",
+      image: "/images/solutions/air-freight.jpg",
+    },
+    {
+      title: "ROAD FREIGHT",
+      desc: "Get to know the best ways and means. As experts in routes all around the world, we can tailor-made the best ground transportation solutions for your most specific needs.",
+      image: "/images/solutions/road-freight.jpg",
+    },
+    {
+      title: "OCEAN FREIGHT",
+      desc: "Your best-fitting solution. Rely on a comprehensive coverage of the most important maritime routes. We combine expertise and technology to transport your cargo from and to any port in the world.",
+      image: "/images/solutions/ocean-freight.jpg",
+    },
+    {
+      title: "INDUSTRIAL PROJECTS",
+      desc: "We provide end-to-end logistics solutions for heavy industry, specializing in the rapid delivery of oversized and mission-critical components to keep production lines running. Our service combines heavy-lift expertise with precise inventory synchronization to ensure that every part arrives exactly when needed, even in the most remote locations.",
+      image: "/images/solutions/industrial-projects.jpg",
+    },
+    {
+      title: "CUSTOMS CLEARANCE",
+      desc: "Clear faster and reduce risk with full customs support across import, export, and transit flows. We handle documentation, tariff classification, regulatory checks, and direct coordination with authorities to keep cargo moving without delays.",
+      image: "/images/solutions/customs-clearance.jpg",
+    },
+    {
+      title: "WAREHOUSING",
+      desc: "Secure, scalable warehousing designed for operational continuity. From receiving and inventory control to picking, packing, and dispatch, we provide flexible storage and fulfillment services aligned with your delivery schedules.",
+      image: "/images/solutions/warehousing.png",
+    },
+  ],
+} = Astro.props;
+
+const topRow = items.slice(0, 3);
+const bottomRow = items.slice(3);
+---
+
+<section id="solutions" class="bg-white">
+  <div class="container-site py-20">
+    <div class="flex items-end justify-between gap-10">
+      <h2 class="text-[44px] font-light tracking-tight text-navy">{title}</h2>
+    </div>
+
+    <div class="mt-12 grid gap-10">
+      <div class="grid gap-10 md:grid-cols-3">
+        {topRow.map((item) => <ServiceCard {...item} />)}
+        {bottomRow.map((item) => <ServiceCard {...item} />)}
+      </div>
+    </div>
+  </div>
+</section>

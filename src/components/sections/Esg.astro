@@ -1,0 +1,48 @@
+---
+import { esg } from "../../data/content";
+
+const {
+  kicker = esg.kicker,
+  title = esg.title,
+  body = esg.body,
+  imageSrc = esg.imageSrc,
+  imageAlt = esg.imageAlt,
+} = Astro.props;
+---
+
+<section class="relative bg-cream">
+  <div class="section-body">
+    <div class="container-site site-grid items-center">
+      <div class="col-span-12 lg:col-span-6">
+        <div class="mb-6 h-1 w-14 bg-primary"></div>
+
+        <p class="text-xs font-medium uppercase tracking-[0.2em] text-navy">
+          {kicker}
+        </p>
+
+        <h2 class="mt-5 text-2xl font-medium leading-snug tracking-tight text-navy md:text-[28px] lg:text-[32px]">
+          {title}
+        </h2>
+
+        <p class="mt-6 text-sm leading-relaxed text-gray md:text-base">
+          {body}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- overlapping image, aligned to right grid columns -->
+  <div class="container-site mt-6 lg:absolute lg:inset-x-0 lg:top-1/2 lg:mt-0 lg:-translate-y-1/2">
+    <div class="site-grid">
+      <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          class="aspect-[4/3] w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </div>
+</section>

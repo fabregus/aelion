@@ -1,0 +1,55 @@
+---
+import { images } from "../../data/images";
+
+const {
+  philosophyTitle = "OUR PHILOSOPHY",
+  philosophyItems = [
+    "Precision in every detail",
+    "Transparent, accountable operations",
+    "Premium service culture",
+    "Long term asset value",
+    "Sustainability and responsible operations",
+  ],
+  promiseTitle = "OUR PROMISE",
+  promiseBefore = "We treat every property as a living ecosystem — one that",
+  promiseAfter = "deserves care, expertise, and continuous improvement.",
+  imageSrc = images.stock.jerryYeats,
+  imageAlt = "Modern library interior with curved bookshelves",
+} = Astro.props;
+---
+
+<section class="grid lg:grid-cols-[2fr_3fr]">
+  <div class="relative min-h-[280px] sm:min-h-[360px] lg:min-h-[520px]">
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      class="absolute inset-0 h-full w-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <div
+    class="flex flex-col items-center justify-center bg-navy px-8 py-14 text-center text-white sm:px-12 sm:py-16 lg:px-16 lg:py-20"
+  >
+    <h2 class="text-lg font-medium uppercase tracking-[0.12em] md:text-xl">
+      {philosophyTitle}
+    </h2>
+
+    <ul class="mt-8 space-y-1 text-sm font-light leading-snug text-white/95 md:text-base md:leading-snug">
+      {philosophyItems.map((item) => <li>{item}</li>)}
+    </ul>
+
+    <div class="my-10 h-1 w-16 bg-primary" aria-hidden="true"></div>
+
+    <h2 class="text-lg font-medium uppercase tracking-[0.12em] md:text-xl">
+      {promiseTitle}
+    </h2>
+
+    <p class="mt-6 max-w-md text-sm font-light leading-relaxed text-white/95 md:text-base">
+      {promiseBefore}
+      <br />
+      {promiseAfter}
+    </p>
+  </div>
+</section>

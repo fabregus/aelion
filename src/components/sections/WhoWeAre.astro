@@ -1,0 +1,72 @@
+---
+import { images } from "../../data/images";
+
+const {
+  id = "about",
+  kicker = "WHO WE ARE",
+  title = "AELION: A New Standard in Facility Management",
+  body = "AELION is a premium facility management company delivering integrated soft and hard services across commercial, residential, hospitality, and institutional environments. We combine operational excellence with a boutique service philosophy, ensuring every property operates at peak performance — safely, efficiently, and flawlessly.",
+  imageSrc = images.stock.alexanderTsang,
+  imageAlt = "Modern commercial building facade",
+  backgroundSrc = images.stock.maartenDeckers,
+  backgroundSrc2x = images.stock.maartenDeckers2x,
+} = Astro.props;
+---
+
+<section
+  id={id}
+  class="relative min-h-[720px] md:min-h-[880px] lg:min-h-[1050px]"
+>
+  <div class="absolute inset-0">
+    <picture>
+      <source media="(min-width: 768px)" srcset={backgroundSrc2x} />
+      <img
+        src={backgroundSrc}
+        alt=""
+        class="h-full w-full object-cover object-left"
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+  </div>
+
+  <div class="relative z-10 flex min-h-[inherit] flex-col">
+    <!-- top space to reveal background -->
+    <div class="min-h-[160px] grow md:min-h-[220px] lg:min-h-[292px]" aria-hidden="true"></div>
+
+    <!-- inset left (background gap) → flush right -->
+    <div class="w-full pl-6 md:pl-10 lg:pl-[90px]">
+    <div class="bg-white py-10 md:py-12 lg:py-14">
+      <div class="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
+        <div class="flex-1 px-6 sm:px-8 lg:pl-[50px] lg:pr-8 xl:pr-12">
+          <div class="max-w-xl">
+            <div class="mb-6 h-1 w-14 bg-primary"></div>
+
+            <p class="text-xs font-medium uppercase tracking-[0.2em] text-gray">
+              {kicker}
+            </p>
+
+            <h2 class="mt-4 text-2xl font-medium leading-snug tracking-tight text-navy md:text-[28px] lg:text-[32px]">
+              {title}
+            </h2>
+
+            <p class="mt-6 text-base leading-7 text-gray md:text-[17px]">
+              {body}
+            </p>
+          </div>
+        </div>
+
+        <div class="w-full shrink-0 lg:w-[min(520px,44vw)] xl:w-[min(580px,42vw)]">
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            class="aspect-square w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
