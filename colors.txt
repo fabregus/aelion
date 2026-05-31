@@ -1,4 +1,4 @@
-# AELION brand palette (synced in src/data/brand.ts and src/styles/global.css)
+# AELION brand palette (synced in src/styles/global.css and tailwind.config.mjs)
 #FFFFFF   white
 #1A213D   navy
 #707070   gray

@@ -44,39 +44,6 @@ export const esg = {
   imageAlt: "Sunlight through a forest canopy",
 };
 
-export const solutions = [
-  {
-    title: "TECHNICAL\nSERVICES",
-    desc: "HVAC, electrical, plumbing, and building systems maintained to the highest standards — proactive, compliant, and always operational.",
-    image: images.sections.group535,
-  },
-  {
-    title: "SOFT\nSERVICES",
-    desc: "Reception, concierge, mailroom, and front-of-house services that reflect your brand and welcome every visitor with professionalism.",
-    image: images.sections.mask1,
-  },
-  {
-    title: "CLEANING &\nHYGIENE",
-    desc: "Tailored cleaning programmes for offices, hotels, and high-traffic spaces — consistent quality, health-first protocols, and discreet execution.",
-    image: images.stock.dsc05378,
-  },
-  {
-    title: "SECURITY &\nACCESS",
-    desc: "Integrated security, access control, and patrol services designed to protect people, property, and peace of mind around the clock.",
-    image: images.sections.group534,
-  },
-  {
-    title: "LANDSCAPING &\nGROUNDS",
-    desc: "Exterior maintenance, landscaping, and pool areas kept pristine — preserving curb appeal and guest experience year-round.",
-    image: images.sections.group533,
-  },
-  {
-    title: "PROJECT\nMANAGEMENT",
-    desc: "Fit-outs, refurbishments, and capital projects delivered on scope, on schedule, and with minimal disruption to daily operations.",
-    image: images.sections.group536,
-  },
-];
-
 export const contact = {
   phone: "+30 2100000",
   email: "info@aelion.gr",
