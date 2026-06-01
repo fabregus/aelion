@@ -32,7 +32,7 @@ export const cta = {
   text: "Speak with our team to design a tailored facility management solution that fits your property’s needs.",
   ctaLabel: "CONTACT US",
   ctaEmail: "info@aelion.gr",
-  imageSrc: images.sections.group537,
+  imageSrc: images.sections.ctaBackground,
   imageAlt: "Skyscrapers rising into the fog",
 };
 
