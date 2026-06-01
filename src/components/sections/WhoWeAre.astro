@@ -13,11 +13,8 @@ const {
 } = Astro.props;
 ---
 
-<section
-  id={id}
-  class="relative min-h-[720px] md:min-h-[880px] lg:min-h-[1050px]"
->
-  <div class="absolute inset-0">
+<section id={id} class="who">
+  <div class="who__bg" aria-hidden="true">
     <picture>
       <source media="(min-width: 768px)" srcset={backgroundSrc2x} />
       <img
@@ -30,43 +27,259 @@ const {
     </picture>
   </div>
 
-  <div class="relative z-10 flex min-h-[inherit] flex-col">
-    <!-- top space to reveal background -->
-    <div class="min-h-[160px] grow md:min-h-[220px] lg:min-h-[292px]" aria-hidden="true"></div>
-
-    <!-- inset left (background gap) → flush right -->
-    <div class="w-full pl-6 md:pl-10 lg:pl-[90px]">
-    <div class="bg-white py-10 md:py-12 lg:py-14">
-      <div class="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
-        <div class="flex-1 px-6 sm:px-8 lg:pl-[50px] lg:pr-8 xl:pr-12">
-          <div class="max-w-xl">
-            <div class="mb-6 h-1 w-14 bg-primary"></div>
-
-            <p class="text-xs font-medium uppercase tracking-[0.2em] text-gray">
-              {kicker}
-            </p>
-
-            <h2 class="mt-4 text-2xl font-medium leading-snug tracking-tight text-navy md:text-[28px] lg:text-[32px]">
-              {title}
-            </h2>
-
-            <p class="mt-6 text-base leading-7 text-gray md:text-[17px]">
-              {body}
-            </p>
-          </div>
+  <div class="who__layout">
+    <div class="who__panel">
+      <div class="who__row">
+        <div class="who__copy">
+          <div class="who__line" aria-hidden="true"></div>
+          <p class="who__kicker">{kicker}</p>
+          <h2 class="who__title">{title}</h2>
+          <p class="who__body">{body}</p>
         </div>
 
-        <div class="w-full shrink-0 lg:w-[min(520px,44vw)] xl:w-[min(580px,42vw)]">
+        <figure class="who__media">
           <img
             src={imageSrc}
             alt={imageAlt}
-            class="aspect-square w-full object-cover"
+            class="absolute inset-0 h-full w-full object-cover object-center"
             loading="lazy"
             decoding="async"
           />
-        </div>
+        </figure>
       </div>
-    </div>
     </div>
   </div>
 </section>
+
+<style>
+  .who {
+    --who-gap: 64px;
+    --who-panel-pl: 50px;
+    --who-panel-py: 72px;
+    --who-layout-pl: 107px;
+    --who-top: 292px;
+    --who-copy-w: 847px;
+    --who-img: 580px;
+
+    position: relative;
+    overflow: visible;
+    min-height: 720px;
+  }
+
+  .who__bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .who__layout {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-height: inherit;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 160px 0 0;
+    padding-left: 1.5rem;
+  }
+
+  .who__panel {
+    overflow: hidden;
+    background-color: var(--color-white);
+    padding: 2.5rem 1.5rem;
+  }
+
+  .who__row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--who-gap);
+  }
+
+  .who__copy {
+    width: 100%;
+    max-width: 36rem;
+  }
+
+  .who__line {
+    width: 3.5rem;
+    height: 4px;
+    margin-bottom: 1.5rem;
+    background-color: var(--color-primary);
+  }
+
+  .who__kicker {
+    margin: 0 0 16px;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gray);
+  }
+
+  .who__title {
+    margin: 0 0 24px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--color-navy);
+  }
+
+  .who__body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--color-gray);
+  }
+
+  .who__media {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 28rem;
+    aspect-ratio: 1;
+  }
+
+  .who__media img {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .who {
+      min-height: 880px;
+    }
+
+    .who__layout {
+      padding-top: 220px;
+      padding-left: 2.5rem;
+    }
+
+    .who__panel {
+      padding: 3rem 0 3rem 2rem;
+    }
+
+    .who__row {
+      display: grid;
+      width: 100%;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 38vw);
+      column-gap: var(--who-gap);
+      align-items: center;
+    }
+
+    .who__copy {
+      max-width: min(560px, 100%);
+    }
+
+    .who__title {
+      font-size: 1.75rem;
+    }
+
+    .who__body {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+    }
+
+    .who__media {
+      width: 100%;
+      max-width: none;
+      justify-self: end;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .who {
+      min-height: 1050px;
+      --who-layout-pl: 90px;
+    }
+
+    .who__layout {
+      padding-top: var(--who-top);
+      padding-left: var(--who-layout-pl);
+    }
+
+    .who__panel {
+      padding: var(--who-panel-py) 0 var(--who-panel-py) var(--who-panel-pl);
+    }
+
+    .who__row {
+      grid-template-columns: minmax(0, 1fr) minmax(400px, 32vw);
+    }
+
+    .who__copy {
+      max-width: min(720px, 100%);
+    }
+
+    .who__kicker {
+      font-size: 0.75rem;
+    }
+
+    .who__title {
+      font-size: 2rem;
+      margin-bottom: 28px;
+    }
+
+    .who__body {
+      font-size: 1.375rem;
+      line-height: 2.125rem;
+    }
+  }
+
+  /* 1920 artboard — fixed columns, 64px gap, no stretch between text & image */
+  @media (min-width: 1800px) {
+    .who {
+      min-height: 1080px;
+      --who-layout-pl: 107px;
+    }
+
+    .who__layout {
+      padding-top: var(--who-top);
+      padding-left: var(--who-layout-pl);
+    }
+
+    .who__panel {
+      padding: var(--who-panel-py) 0 var(--who-panel-py) var(--who-panel-pl);
+    }
+
+    .who__row {
+      grid-template-columns: var(--who-copy-w) var(--who-img);
+      column-gap: var(--who-gap);
+      width: 100%;
+      max-width: none;
+    }
+
+    .who__copy {
+      width: var(--who-copy-w);
+      max-width: var(--who-copy-w);
+    }
+
+    .who__line {
+      margin-bottom: 24px;
+    }
+
+    .who__kicker {
+      margin-bottom: 20px;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+    }
+
+    .who__title {
+      margin-bottom: 32px;
+      font-size: 40px;
+      line-height: 1.25;
+    }
+
+    .who__body {
+      font-size: 25px;
+      line-height: 38px;
+    }
+
+    .who__media {
+      width: var(--who-img);
+      height: var(--who-img);
+      aspect-ratio: 1;
+      justify-self: start;
+    }
+  }
+</style>
