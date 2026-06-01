@@ -13,7 +13,7 @@ export const philosophy = {
   promiseBefore:
     "We treat every property as a living ecosystem — one that",
   promiseAfter: "deserves care, expertise, and continuous improvement.",
-  imageSrc: images.stock.jerryYeats,
+  imageSrc: images.philosophy.photo,
   imageAlt: "Modern library interior with curved bookshelves",
 };
 
@@ -21,10 +21,10 @@ export const whoWeAre = {
   kicker: "WHO WE ARE",
   title: "AELION: A New Standard in Facility Management",
   body: "AELION is a premium facility management company delivering integrated soft and hard services across commercial, residential, hospitality, and institutional environments. We combine operational excellence with a boutique service philosophy, ensuring every property operates at peak performance — safely, efficiently, and flawlessly.",
-  imageSrc: images.stock.alexanderTsang,
+  imageSrc: images.whoWeAre.photo,
   imageAlt: "Modern commercial building facade",
-  backgroundSrc: images.stock.maartenDeckers,
-  backgroundSrc2x: images.stock.maartenDeckers2x,
+  backgroundSrc: images.whoWeAre.background,
+  backgroundSrc2x: images.whoWeAre.background2x,
 };
 
 export const cta = {
@@ -32,7 +32,7 @@ export const cta = {
   text: "Speak with our team to design a tailored facility management solution that fits your property’s needs.",
   ctaLabel: "CONTACT US",
   ctaEmail: "info@aelion.gr",
-  imageSrc: images.sections.ctaBackground,
+  imageSrc: images.cta.background,
   imageAlt: "Skyscrapers rising into the fog",
 };
 
@@ -41,7 +41,7 @@ export const esg = {
   title: "Responsible Operations for a Better Future",
   titleLines: ["Responsible Operations", "for a Better Future"],
   body: "AELION integrates sustainable practices across all services — from eco friendly cleaning materials to energy efficient maintenance strategies. Our goal is to reduce environmental impact while improving operational performance.",
-  imageSrc: images.stock.mariaShayna,
+  imageSrc: images.esg.photo,
   imageAlt: "Sunlight through a forest canopy",
 };
 

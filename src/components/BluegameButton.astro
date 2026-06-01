@@ -1,4 +1,6 @@
 ---
+import { images } from "../data/images";
+
 const {
   href = "https://portal.bluegameitsolutions.com/login",
   variant = "default",
@@ -14,7 +16,7 @@ const isHeader = variant === "header";
   class:list={["button-primary", isHeader && "button-primary--header"]}
 >
   <img
-    src="/images/bluegame-logo.png"
+    src={images.partners.bluegame}
     alt="Bluegame"
     class="bluegame-logo"
     loading="lazy"
