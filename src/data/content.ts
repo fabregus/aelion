@@ -39,6 +39,7 @@ export const cta = {
 export const esg = {
   kicker: "ESG & SUSTAINABILITY",
   title: "Responsible Operations for a Better Future",
+  titleLines: ["Responsible Operations", "for a Better Future"],
   body: "AELION integrates sustainable practices across all services — from eco friendly cleaning materials to energy efficient maintenance strategies. Our goal is to reduce environmental impact while improving operational performance.",
   imageSrc: images.stock.mariaShayna,
   imageAlt: "Sunlight through a forest canopy",

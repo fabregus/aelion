@@ -4,151 +4,53 @@ import { esg } from "../../data/content";
 const {
   kicker = esg.kicker,
   title = esg.title,
+  titleLines = esg.titleLines,
   body = esg.body,
   imageSrc = esg.imageSrc,
   imageAlt = esg.imageAlt,
 } = Astro.props;
 ---
 
-<section class="esg relative overflow-visible bg-white">
-  <div class="esg__cream esg__cream--mobile" aria-hidden="true"></div>
-  <div class="esg__cream esg__cream--desktop" aria-hidden="true"></div>
+<section class="esg-section relative overflow-visible bg-white">
+  <div class="esg-section__cream" aria-hidden="true"></div>
 
-  <div class="container-site esg__inner">
-    <div class="esg__content">
-      <div class="esg__copy">
-        <div class="mb-6 h-1 w-14 bg-primary" aria-hidden="true"></div>
+  <div class="esg-section__surface bg-cream lg:bg-transparent">
+    <div class="esg-section__inner">
+      <div class="esg-section__row">
+        <div class="esg-section__copy">
+          <div class="mb-6 h-1 w-14 bg-primary" aria-hidden="true"></div>
 
-        <p class="text-xs font-medium uppercase tracking-[0.2em] text-navy">
-          {kicker}
-        </p>
+          <p class="esg-section__kicker">
+            {kicker}
+          </p>
 
-        <h2 class="mt-5 text-2xl font-medium leading-snug tracking-tight text-navy md:text-[28px] lg:text-[32px]">
-          {title}
-        </h2>
+          <h2 class="esg-section__title">
+            {
+              titleLines ? (
+                titleLines.map((line: string) => (
+                  <span class="block">{line}</span>
+                ))
+              ) : (
+                title
+              )
+            }
+          </h2>
 
-        <p class="mt-6 text-sm leading-relaxed text-gray md:text-base">
-          {body}
-        </p>
+          <p class="esg-section__body">
+            {body}
+          </p>
+        </div>
+
+        <figure class="esg-section__media">
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            class="absolute inset-0 h-full w-full object-cover object-center"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </div>
-
-      <figure class="esg__media">
-        <img
-          src={imageSrc}
-          alt={imageAlt}
-          class="absolute inset-0 h-full w-full object-cover object-center"
-          loading="lazy"
-          decoding="async"
-        />
-      </figure>
     </div>
   </div>
 </section>
-
-<style>
-  .esg {
-    --esg-cream-width: 58%;
-    --esg-cream-inset: 5rem;
-    --esg-gap: 64px;
-    --esg-img-w: min(782px, 58vw);
-    --esg-img-h: calc(var(--esg-img-w) * 612 / 782);
-  }
-
-  .esg__cream {
-    position: absolute;
-    left: 0;
-    background-color: var(--color-cream);
-    pointer-events: none;
-  }
-
-  .esg__cream--mobile {
-    inset: 0;
-  }
-
-  .esg__cream--desktop {
-    display: none;
-  }
-
-  .esg__inner {
-    position: relative;
-    z-index: 1;
-  }
-
-  .esg__content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--esg-gap);
-    padding: 3.5rem 0 3rem;
-  }
-
-  .esg__copy {
-    position: relative;
-    z-index: 2;
-    max-width: 36rem;
-  }
-
-  .esg__media {
-    position: relative;
-    z-index: 3;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 782px;
-    aspect-ratio: 782 / 612;
-  }
-
-  .esg__media img {
-    display: block;
-  }
-
-  @media (min-width: 1024px) {
-    .esg {
-      min-height: calc(var(--esg-cream-inset) * 2 + var(--esg-img-h));
-    }
-
-    .esg__cream--mobile {
-      display: none;
-    }
-
-    .esg__cream--desktop {
-      display: block;
-      top: var(--esg-cream-inset);
-      bottom: var(--esg-cream-inset);
-      width: var(--esg-cream-width);
-    }
-
-    .esg__content {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) var(--esg-img-w);
-      align-items: start;
-      gap: var(--esg-gap);
-      min-height: var(--esg-img-h);
-      padding: 0;
-    }
-
-    .esg__copy {
-      width: auto;
-      max-width: 32rem;
-      padding: var(--esg-cream-inset) 0 var(--esg-cream-inset) 0;
-    }
-
-    .esg__media {
-      position: relative;
-      top: 0;
-      left: auto;
-      margin: 0;
-      justify-self: end;
-      width: var(--esg-img-w);
-      height: var(--esg-img-h);
-      max-width: 782px;
-      aspect-ratio: auto;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .esg__media {
-      width: 782px;
-      height: 612px;
-    }
-  }
-</style>

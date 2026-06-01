@@ -8,47 +8,49 @@ const {
 } = Astro.props;
 ---
 
-<section class="bg-cream">
-  <div class="container-site section-body">
-    <div class="mb-6 h-1 w-14 bg-primary"></div>
+<section>
+  <div class="bg-white section-body pb-0 md:pb-0 min-[1536px]:pb-0">
+    <div class="container-site">
+      <div class="mb-6 h-1 w-14 bg-primary" aria-hidden="true"></div>
 
-    <p class="text-xs font-medium uppercase tracking-[0.2em] text-navy">
-      {kicker}
-    </p>
+      <p class="text-xs font-medium uppercase tracking-[0.2em] text-navy min-[1536px]:text-sm">
+        {kicker}
+      </p>
 
-    <h2 class="mt-4 max-w-2xl text-3xl font-medium leading-tight tracking-tight text-navy md:text-4xl">
-      {title}
-    </h2>
+      <h2
+        class="mt-4 max-w-2xl text-3xl font-medium leading-tight tracking-tight text-gray md:text-4xl min-[1536px]:text-[40px] min-[1536px]:leading-[1.2]"
+      >
+        {title}
+      </h2>
+    </div>
   </div>
 
-  <div class="mt-12 px-6 sm:px-10 lg:px-[74px]">
-    <div
-      class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
-    >
-      {
-        items.map((item) => (
-          <article class="flex flex-col items-center border border-navy/10 bg-white px-5 py-8 text-center md:px-6 md:py-9">
-            <span class="number-outline text-6xl font-light leading-none md:text-7xl">
-              {item.number}
-            </span>
+  <div class="bg-cream pt-12 pb-16 min-[1536px]:pt-16 min-[1536px]:pb-20">
+    <div class="container-site why-cards-wrap">
+      <div class="why-cards-grid">
+        {
+          items.map((item) => (
+            <article
+              class="why-card flex min-h-[280px] flex-col items-center border border-navy/10 bg-white px-5 py-8 text-center sm:px-6 sm:py-9 min-[1536px]:px-6 min-[1536px]:py-10"
+            >
+              <span
+                class="text-6xl font-light leading-none text-transparent [-webkit-text-stroke:1.5px_#02af9f] md:text-7xl min-[1536px]:text-[5rem]"
+              >
+                {item.number}
+              </span>
 
-            <h3 class="mt-6 text-base font-medium leading-snug text-navy md:text-lg">
-              {item.title}
-            </h3>
+              <h3 class="mt-6 text-base font-medium leading-snug text-navy min-[1536px]:mt-7 min-[1536px]:text-[27px] min-[1536px]:leading-[1.25]">
+                <span class="block">{item.title[0]}</span>
+                <span class="block">{item.title[1]}</span>
+              </h3>
 
-            <p class="mt-4 text-sm leading-relaxed text-gray">
-              {item.description}
-            </p>
-          </article>
-        ))
-      }
+              <p class="mt-4 text-sm leading-relaxed text-gray min-[1536px]:mt-5 min-[1536px]:text-[20px] min-[1536px]:leading-[1.5]">
+                {item.description}
+              </p>
+            </article>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
-
-<style>
-  .number-outline {
-    color: transparent;
-    -webkit-text-stroke: 1.5px var(--color-primary);
-  }
-</style>
