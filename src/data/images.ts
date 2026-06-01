@@ -2,6 +2,12 @@
  * Image paths under public/images — use these instead of hardcoding URLs.
  */
 export const images = {
+  brand: {
+    logoWhite: "/images/aelion-logo-white.png",
+    logoBlack: "/images/aelion-logo-black.png",
+    favicon: "/favicon.png",
+    appleTouchIcon: "/apple-touch-icon.png",
+  },
   hero: {
     src: "/images/71b16f6a-6719-4eac-bb9e-252ccf5ae4e0.psd.png",
     src2x: "/images/71b16f6a-6719-4eac-bb9e-252ccf5ae4e0.psd@2x.png",
@@ -12,7 +18,7 @@ export const images = {
     group534: "/images/Group 534.png",
     group535: "/images/Group 535.png",
     group536: "/images/Group 536.png",
-    group537: "/images/Group 537.png",
+    group537: "/images/matthew-henry-VviFtDJakYk-unsplash.jpg",
     mask1: "/images/Mask Group 1.png",
   },
   stock: {
