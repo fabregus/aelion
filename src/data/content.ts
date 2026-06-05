@@ -49,10 +49,4 @@ export const contact = {
   phone: "+30 211 333 3540",
   email: "admin@aelionfm.com",
   addressLines: ["Athens, Greece"],
-  social: [
-    { label: "Instagram", href: "#", icon: "instagram" },
-    { label: "Facebook", href: "#", icon: "facebook" },
-    { label: "YouTube", href: "#", icon: "youtube" },
-    { label: "LinkedIn", href: "#", icon: "linkedin" },
-  ],
 };
