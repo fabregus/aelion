@@ -31,7 +31,7 @@ export const cta = {
   title: "Let’s Elevate Your Property Together",
   text: "Speak with our team to design a tailored facility management solution that fits your property’s needs.",
   ctaLabel: "CONTACT US",
-  ctaEmail: "info@aelion.gr",
+  ctaEmail: "admin@aelionfm.com",
   imageSrc: images.cta.background,
   imageAlt: "Skyscrapers rising into the fog",
 };
@@ -46,8 +46,8 @@ export const esg = {
 };
 
 export const contact = {
-  phone: "+30 2100000",
-  email: "info@aelion.gr",
+  phone: "+30 211 333 3540",
+  email: "admin@aelionfm.com",
   addressLines: ["Athens, Greece"],
   social: [
     { label: "Instagram", href: "#", icon: "instagram" },

@@ -26,14 +26,13 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "Cleaning Services",
         description:
-          "Premium cleaning solutions for offices, retail, hospitality, and high-traffic environments.",
+          "Premium cleaning solutions for offices, residential complexes, spa and wellness areas, hospitality, and high-traffic environments.",
         bullets: [
           "Daily cleaning & housekeeping",
           "Beach Cleaning",
           "Glass, façade & high-reach cleaning",
           "Robotic Cleaning",
           "Specialized cleaning for sensitive areas",
-          "Pool Cleaning",
           "Deep cleaning & disinfection",
         ],
       },
@@ -89,6 +88,7 @@ export const serviceCategories: ServiceCategory[] = [
         description: "Full lifecycle maintenance for building systems.",
         bullets: [
           "HVAC, electrical, plumbing, swimming pools MEP",
+          "Pool Cleaning",
           "Preventive & corrective maintenance",
           "Energy optimization",
           "Asset condition reporting",
